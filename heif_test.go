@@ -148,6 +148,17 @@ func TestReadExifFromFile(t *testing.T) {
 	}
 }
 
+func TestReadExifFromFileHighLevel(t *testing.T) {
+	filename := path.Join("examples", "example.heic")
+	exif, err := readExif(filename)
+	if err != nil {
+		t.Fatalf("Can't read exif: %s", err)
+	}
+	if exif == nil {
+		t.Errorf("Could not read exif: %s", err)
+	}
+}
+
 func TestReadFromMemory(t *testing.T) {
 	ctx, err := NewContext()
 	if err != nil {
