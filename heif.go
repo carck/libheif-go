@@ -1485,7 +1485,12 @@ func ReadExif(fileName string) ([]byte, error) {
 		if exif, err := handle.GetExif(); err != nil {
 			return nil, err
 		} else {
-			return exif, nil
+			offset := int(exif[0]) >> 24
+			offset |= int(exif[1]) >> 16
+			offset |= int(exif[2]) >> 8
+			offset |= int(exif[3])
+			offset += 4
+			return exif[offset:], nil
 		}
 	}
 }
