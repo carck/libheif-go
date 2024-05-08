@@ -1470,7 +1470,7 @@ func decodeConfig(r io.Reader) (image.Config, error) {
 	return config, nil
 }
 
-func readExif(fileName string) ([]byte, error) {
+func ReadExif(fileName string) ([]byte, error) {
 	ctx, err := NewContext()
 	if err != nil {
 		return nil, err

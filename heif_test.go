@@ -150,7 +150,7 @@ func TestReadExifFromFile(t *testing.T) {
 
 func TestReadExifFromFileHighLevel(t *testing.T) {
 	filename := path.Join("examples", "example.heic")
-	exif, err := readExif(filename)
+	exif, err := ReadExif(filename)
 	if err != nil {
 		t.Fatalf("Can't read exif: %s", err)
 	}
